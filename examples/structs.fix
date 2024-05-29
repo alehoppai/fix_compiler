@@ -1,0 +1,20 @@
+struct {
+	num age
+	str name
+} DataT
+
+proto {
+	# instance method
+	pub fn &introduce () {
+		print("Hello, I am !{&.name}, and I'm !{&.name} y.o.")
+	}
+	# static method
+	pub fn new (num age, str name) DataT {
+		Data(age: age, name: name)
+	}
+} DataT
+
+# calling static method
+DataT datat = DataT::new(name: "Aleh", age: 31) 
+# calling instance method
+datat.introduce()

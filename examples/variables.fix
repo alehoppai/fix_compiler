@@ -1,0 +1,27 @@
+# datatypes from js -> to mine
+# Number -> num
+# BigInt -> num + b
+# String -> str
+# Bool -> bool
+# Symbol -> sym
+# null -> opt
+#
+# Object -> struct
+# Array -> T[]
+# Function -> func
+# Date -> Date
+# Regex -> Regex
+# Error -> Error
+#
+# Map -> Map
+# Set -> Set
+# WeakMap -> WMap
+# WeakSet -> WSet
+
+num my_num = 42
+num my_bigint = 1234567890123456789012345678901234567890b
+str my_string = "Hello, world!"
+bool my_bool = false
+
+
+
