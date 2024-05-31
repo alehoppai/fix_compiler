@@ -14,7 +14,7 @@ var TokenTypesMap map[string]*regexp.Regexp = map[string]*regexp.Regexp{
     "literal_boolean": regexp.MustCompile(`\b(true|false)\b`),
     "identifier":      regexp.MustCompile(`\b&?[a-zA-Z_][a-zA-Z0-9_]*\b`),
     "operator":        regexp.MustCompile(`[+\-*/=]=?`),
-    "delimiter":       regexp.MustCompile(`[(){};,:.]`),
+    "delimiter":       regexp.MustCompile(`::|[(){};,:.]`),
     "whitespace":      regexp.MustCompile(`\s+`),
     "comment":         regexp.MustCompile(`#.*`),
 }
