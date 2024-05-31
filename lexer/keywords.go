@@ -6,7 +6,7 @@ import (
 
 var ModKeywordsArr []string = []string{"pub", "mut", "mod"}
 var VarKeywordsArr []string = []string{"num", "str", "bool", "opt"}
-var ObjKeywordsArr []string = []string{"struct", "proto"}
+var ObjKeywordsArr []string = []string{"obj", "proto"}
 var FunKeywordsArr []string = []string{"fn", "return"}
 
 var ModKeywordsRgx = `\b(` + strings.Join(ModKeywordsArr, "|") + `)\b` 

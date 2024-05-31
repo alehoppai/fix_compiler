@@ -24,4 +24,3 @@ pub mut str my_string = "Hello, world!"
 bool my_bool = false
 
 
-
