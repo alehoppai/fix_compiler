@@ -7,6 +7,7 @@ import (
     "io/fs"
 	"path/filepath"
     "github.com/fix_compiler/lexer"
+    "github.com/fix_compiler/parser"
 )
 
 const CLI_LOGO string = `
@@ -49,7 +50,12 @@ func performCompilation(projectPath string) {
 		}
 
         fmt.Printf("Tokenizing %s -- %d/%d files.\n", filePath, i+1, len(files))
-        lexer.Tokenize(string(content))
+        if file.Name() == "structs.fix" {
+            // TODO: struct parser not ready
+            continue
+        }
+        tokens := lexer.Tokenize(string(content))
+        parser.PrepareAST(tokens)
 	}
 }
 
