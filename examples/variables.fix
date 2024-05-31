@@ -19,8 +19,8 @@
 # WeakSet -> WSet
 
 num my_num = 42
-num my_bigint = 1234567890123456789012345678901234567890b
-str my_string = "Hello, world!"
+mut num my_bigint = 1234567890123456789012345678901234567890b
+pub mut str my_string = "Hello, world!"
 bool my_bool = false
 
 

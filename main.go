@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+    "github.com/fix_compiler/lexer"
 )
 
 func readProject(path string) (entries []fs.DirEntry) {
@@ -36,7 +37,10 @@ func main() {
 			log.Fatal(err)
 		}
 
-		tokens := Lexer(string(content))
-		fmt.Println(tokens)
+		tokens := lexer.Tokenize(string(content))
+
+        for _, token := range tokens {
+            fmt.Println(token)
+        }
 	}
 }
