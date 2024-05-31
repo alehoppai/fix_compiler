@@ -1,7 +1,8 @@
-package lexer
+package lexer_test
 
 import (
 	"testing"
+    "github.com/fix_compiler/lexer"
 )
 
 func TestLexerVars(t *testing.T) {
@@ -10,7 +11,7 @@ num my_bigint = 1234567890123456789012345678901234567890b
 pub str my_string = "Hello, world!"
 bool my_bool = false`
 
-	expectedTokens := []Token{
+    expectedTokens := []lexer.Token{
 		{Type: "keyword_var",     Value: "num"},
 		{Type: "identifier",      Value: "my_num"},
 		{Type: "operator",        Value: "="},
@@ -30,7 +31,7 @@ bool my_bool = false`
 		{Type: "literal_boolean", Value: "false"},
 	}
 
-	tokens := Tokenize(sourceCode)
+	tokens := lexer.Tokenize(sourceCode)
 
 	if len(tokens) != len(expectedTokens) {
 		t.Fatalf("expected %d tokens, got %d", len(expectedTokens), len(tokens))
@@ -60,7 +61,7 @@ proto {
 	}
 } DataT`
 
-	expectedTokens := []Token{
+	expectedTokens := []lexer.Token{
         {Type: "keyword_obj",    Value: "struct"},
         {Type: "delimiter",      Value: "{"},
         {Type: "keyword_var",    Value: "num"},
@@ -109,7 +110,7 @@ proto {
         {Type: "identifier",     Value: "DataT"},
 	}
 
-	tokens := Tokenize(sourceCode)
+	tokens := lexer.Tokenize(sourceCode)
 
 	if len(tokens) != len(expectedTokens) {
 		t.Fatalf("expected %d tokens, got %d", len(expectedTokens), len(tokens))
