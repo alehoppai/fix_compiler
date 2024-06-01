@@ -23,4 +23,9 @@ mut num my_bigint = 1234567890123456789012345678901234567890b
 pub mut str my_string = "Hello, world!"
 bool my_bool = false
 
+num number_1 = 12
+num number_2 = 34
+num sum_1_2 = number_1 + number_2
+number_1 = 99
+number_2 = sum(number_1, number_3)
 

@@ -35,7 +35,7 @@ func readProject(path string) (entries []fs.DirEntry) {
 	return
 }
 
-func performCompilation(projectPath string) {
+func performCompilation(projectPath string, debug bool) {
 	files := readProject(projectPath)
 
 	for i, file := range files {
@@ -55,7 +55,16 @@ func performCompilation(projectPath string) {
             continue
         }
         tokens := lexer.Tokenize(string(content))
-        parser.PrepareAST(tokens)
+        if debug {
+            PrettyPrintTokens(&tokens)
+        }
+
+        ast := parser.PrepareAST(tokens)
+        if debug {
+            for _, node := range ast {
+                PrettyPrintAST(node, 0)
+            }
+        }
 	}
 }
 
@@ -64,7 +73,8 @@ func Start() {
 
     switch os.Args[1] {
         case "src":
-            performCompilation(os.Args[2])
+            debug := len(os.Args) == 4 && os.Args[3] == "debug"
+            performCompilation(os.Args[2], debug)
         case "help":
             fmt.Println("Help")
 

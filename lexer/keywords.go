@@ -9,6 +9,10 @@ var VarKeywordsArr []string = []string{"num", "str", "bool", "opt"}
 var ObjKeywordsArr []string = []string{"obj", "proto"}
 var FunKeywordsArr []string = []string{"fn", "return"}
 
+func GetTypesOnly() []string {
+    return append(VarKeywordsArr, ObjKeywordsArr[0])
+}
+
 var ModKeywordsRgx = `\b(` + strings.Join(ModKeywordsArr, "|") + `)\b` 
 var VarKeywordsRgx = `\b(` + strings.Join(VarKeywordsArr, "|") + `)\b` 
 var ObjKeywordsRgx = `\b(` + strings.Join(ObjKeywordsArr, "|") + `)\b` 
